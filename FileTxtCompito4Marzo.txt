@@ -1,0 +1,24 @@
+https://docs.google.com/spreadsheets/d/11klVAyOVKDqeL7eA9gjQVbzYllIJynFD/edit?usp=drive_link&ouid=113759269609781869877&rtpof=true&sd=true
+
+https://lookerstudio.google.com/reporting/fc213f8c-785b-45b0-bdd2-8b688bdf49dc/page/wb2rD/edit
+
+Per questo report durente questi 3 mesi ho voluto raccogliere i dati riguardanti un gioco mobile per telefono a cui mi sono appassionato nell'ultimo anno. Siccome nel tempo libero dedico un discreto tempo a questo gioco mi sembrava opportuno portarlo in analisi.
+Sono partito nella prima pagina dando i dati principali di questo report, mostrando il numero totale di partite, le vittorie e le sconfitte.
+Visto che ci piace mostrare subito i dati positi ho inserito un grafico delle mie vittorie in relazione alle partite totali giocate aggiungendo anche un filtro che permette di filtrare per la data desiderata nell'arco di tempo preso in esame (6 dicembre 2023 /3 Marzo 2024).
+Dopodichè nella seconda pagina ho ritenuto necessario fare due heat-map per evidenziare sia le vittorie sia le sconfitte in relazione ai minuti giocati per vedere in quali dati co sono stati i maggiori trend positivi/negativi. Sempre in questa pagina ho inserito il dato dei minuti giocati complessivi per dare un'idea all'osservatore di quanto tempo di gioco fosse stato preso in esame. Anche qui ho dato l'opportunità attraverso un filtro interattivo di selezionare il periodo che si vuole prendere in esame.
+Nella terza pagina ho messo invece a confronto il numero di vittorie con quello delle sconfitte per vedere il trend generale durante i 3 mesi. Ne emerge che nella quasi totalità del tempo il numero delle vittorie rimane sopra quello delle sconfitte, dato che va a confermare i dati fatti vedere nella prima pagina. Per dare un tocco in più a questa paginaho inserito un filtro che permette di modificare il grafico in base ai minuti giocati per vedere come si modifica il trend di vittorie/sconfitte in relazione all'utilizzo del gioco.
+In quarta pagina usando due grafici a dispersione mi sono voluto concentrare all'aspetto della durata media della partite. In questo caso suddividendo in due parti, sempre uno per le vittorie e uno per le sconfitte. Qui emerge un'analisi interessante dove si può notare che il maggior numero di partite sia perse sia vinte finisce prima del tempo medio di una partita in generale(4,6) ma alcune partite trascinatesi oltre il tempo medio ne alzano appunto il valore. 
+Da questi grafici si vede bene anche quale è stato il massimale di vittorie e il massimale di sconfitte. Anche qui attraverso un filtro si posssono selezionare le date che più si preferiscono vedere.
+Per la realizzazione di questi grafici mi sono dovuto calcolare la media delle partite non avendola già nei miei dati. Creando un nuovo campo calcolato ho utilizzato la funzione SUM(Minuti_giocati) / SUM(Partite_totali).
+Come ultima pagina ho voluto fare una rassegna dei giorni della settimana dove si è giocato di più e dove invece meno. Emerge che nel weekend i minuti medi di gioco siano inevitabilmente più alti. Tutto ciò dovuto al tempo libero che in settimana non si ha. Il giorno con più minuti di gioco è la domenica, seguita dal sabato, mentre il venerdì è all'ultimo posto in questa classifica. 
+Per la realizzazione di questo grafico ho dovuto estrapolare i giorni della settimana per prima cosa con la funzione EXTRACT(DAYOFWEEK FROM Data_partita). Utilizzando questa formula però i giorni della settimana me li dava con i numeri a partire dalla Domenica con il numero 1 e cosi via invece che sottoforma di testo. Quindi ho dovuto convertirli utilizzando un'altra formula:
+CASE
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 1 THEN 'Domenica'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 2 THEN 'Lunedì'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 3 THEN 'Martedì'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 4 THEN 'Mercoledì'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 5 THEN 'Giovedì'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 6 THEN 'Venerdì'
+    WHEN EXTRACT(DAYOFWEEK FROM Data) = 7 THEN 'Sabato'
+END
+Una volta risolto questa problematica è andato tutto liscio fino alla fine dove ho solamente inserito un altro filtro dei giorni
